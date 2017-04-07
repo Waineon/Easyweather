@@ -2,6 +2,9 @@ package android.easyweather.com.easyweather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
+
+import butterknife.BindView;
 
 public class MainActivity extends AppCompatActivity {
 
