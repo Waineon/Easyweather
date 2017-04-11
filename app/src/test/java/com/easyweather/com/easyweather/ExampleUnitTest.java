@@ -1,4 +1,4 @@
-package android.easyweather.com.easyweather;
+package com.easyweather.com.easyweather;
 
 import org.junit.Test;
 

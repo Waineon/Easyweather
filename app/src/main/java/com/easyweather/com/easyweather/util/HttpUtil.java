@@ -1,4 +1,4 @@
-package android.easyweather.com.easyweather.util;
+package com.easyweather.com.easyweather.util;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

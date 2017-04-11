@@ -1,4 +1,4 @@
-package android.easyweather.com.easyweather.db;
+package com.easyweather.com.easyweather.db;
 
 import org.litepal.crud.DataSupport;
 

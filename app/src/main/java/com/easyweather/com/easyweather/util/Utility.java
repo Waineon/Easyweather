@@ -1,8 +1,8 @@
-package android.easyweather.com.easyweather.util;
+package com.easyweather.com.easyweather.util;
 
-import android.easyweather.com.easyweather.db.City;
-import android.easyweather.com.easyweather.db.County;
-import android.easyweather.com.easyweather.db.Province;
+import com.easyweather.com.easyweather.db.City;
+import com.easyweather.com.easyweather.db.County;
+import com.easyweather.com.easyweather.db.Province;
 import android.text.TextUtils;
 
 import org.json.JSONArray;

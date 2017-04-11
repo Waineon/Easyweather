@@ -1,4 +1,4 @@
-package android.easyweather.com.easyweather;
+package com.easyweather.com.easyweather;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
