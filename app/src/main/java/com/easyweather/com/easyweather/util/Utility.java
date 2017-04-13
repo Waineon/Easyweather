@@ -3,6 +3,9 @@ package com.easyweather.com.easyweather.util;
 import com.easyweather.com.easyweather.db.City;
 import com.easyweather.com.easyweather.db.County;
 import com.easyweather.com.easyweather.db.Province;
+import com.easyweather.com.easyweather.gson.Weather;
+import com.google.gson.Gson;
+
 import android.text.TextUtils;
 
 import org.json.JSONArray;
@@ -80,5 +83,17 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    public static Weather handleWeatherResponse(String response){
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent,Weather.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
