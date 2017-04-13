@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import com.easyweather.com.easyweather.db.City;
 import com.easyweather.com.easyweather.db.County;
 import com.easyweather.com.easyweather.db.Province;
+import com.easyweather.com.easyweather.ui.MainActivity;
 import com.easyweather.com.easyweather.util.HttpUtil;
 import com.easyweather.com.easyweather.util.Utility;
 
@@ -106,11 +107,20 @@ public class ChooseAreaFragment extends Fragment {
                     selectedCity=cityList.get(position);
                     queryCounties();
                 }else if(currentLevel==LEVEL_COUNTY){
-                    String weatherId= countyList.get(position).getWeatherId();
-                    Intent intent = new Intent(getActivity(),WeatherActivity.class);
-                    intent.putExtra("weather_id",weatherId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    String weatherId = countyList.get(position).getWeatherId();
+                    //如果在main中，跳转到weather
+                    if(getActivity() instanceof MainActivity) {
+                        Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                        intent.putExtra("weather_id", weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                        //如果在weahter中，关闭drawer，刷新天气
+                    }else if(getActivity() instanceof WeatherActivity){
+                        WeatherActivity activity = (WeatherActivity) getActivity();
+                        activity.drawerLayout.closeDrawers();
+                        activity.swipeRefresh.setRefreshing(true);
+                        activity.resquestWeahter(weatherId);
+                    }
                 }
             }
         });
